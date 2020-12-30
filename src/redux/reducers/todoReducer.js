@@ -19,7 +19,7 @@ const todoReducer = (state = defaultState, action) => {
     console.log(action)
     switch (action.type) {
         case ActionTypes.ADD_TODO:
-            return state
+            return [...state, { id: state[state.length - 1].id + 1, name: action.payload}]
         case ActionTypes.UPDATE_TODO:
             return state
         case ActionTypes.DELETE_TODO:
