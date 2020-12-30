@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
+import { v1 as uuid } from 'uuid'
 import { useDispatch } from 'react-redux'
 import { addTodo } from '../../redux/actions/todoActions'
 
 const TodoInput = () => {
     const dispatch = useDispatch()
-    const [searchText, setSearchText] = useState('')
+    const [name, setName] = useState('')
     
     const onSubmitForm = event => {
         event.preventDefault()
-        dispatch(addTodo(searchText))
+        dispatch(addTodo({
+            id: uuid(),
+            name: name
+        }))
+        setName('')
     }
     return (
         <div style={{ margin: '3rem'}}>
@@ -16,11 +21,11 @@ const TodoInput = () => {
                 <div className="ui fluid action input">
                     <input
                         type="text"
-                        value={searchText}
+                        value={name}
                         placeholder="Type any task..."
-                        onChange={(e) => setSearchText(e.target.value)}
+                        onChange={(e) => setName(e.target.value)}
                     />
-                    <div className="ui button">Search</div>
+                    <button type="submit" className="ui button">Add</button>
                 </div>
             </form>
         </div>

@@ -10,7 +10,7 @@ const TodoList = () => {
             <section style={{ margin: '3rem' }}>
                 <table className="ui celled table">
                     <thead>
-                        <tr>
+                        <tr style={{ textAlign: 'center' }}>
                             <th>No</th>
                             <th>Title</th>
                             <th>Update</th>

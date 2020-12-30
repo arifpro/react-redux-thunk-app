@@ -12,12 +12,12 @@ const TodoItem = ({ todo }) => {
         <tr>
             <td data-label="No">#{todo.id}</td>
             <td data-label="Title">{todo.name}</td>
-            <td data-label="Edit" onClick={() => null} style={{ color: 'blue' }}>
+            <td data-label="Edit" onClick={() => null} style={{ color: 'blue', textAlign: 'center' }}>
                 <i className="edit icon"></i>
             </td>
             <td
                 data-label="Delete"
-                style={{ color: 'red' }}
+                style={{ color: 'red', textAlign: 'center' }}
                 onClick={() => dispatch(deleteTodo(todo.id))}
             >
                 <i className="trash icon"></i>
