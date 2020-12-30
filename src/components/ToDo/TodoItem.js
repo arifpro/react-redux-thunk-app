@@ -1,15 +1,26 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
-const TodoItem = () => {
+import { updateTodo, deleteTodo } from '../../redux/actions/todoActions'
+
+const TodoItem = ({ todo }) => {
+    const dispatch = useDispatch()
+
+    if (!todo) return null
+    
     return (
         <tr>
-            <td data-label="No">#1</td>
-            <td data-label="Title">24</td>
+            <td data-label="No">#{todo.id}</td>
+            <td data-label="Title">{todo.name}</td>
             <td data-label="Edit" onClick={() => null} style={{ color: 'blue' }}>
-                <i class="edit icon"></i>
+                <i className="edit icon"></i>
             </td>
-            <td data-label="Delete" onClick={() => null} style={{ color: 'red' }}>
-                <i class="trash icon"></i>
+            <td
+                data-label="Delete"
+                style={{ color: 'red' }}
+                onClick={() => dispatch(deleteTodo(todo.id))}
+            >
+                <i className="trash icon"></i>
             </td>
         </tr>
     )

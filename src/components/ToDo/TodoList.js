@@ -1,28 +1,31 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import TodoItem from './TodoItem'
 
 const TodoList = () => {
+    const todos = useSelector(state => state.todos)
+
     return (
         <div>
             <section style={{ margin: '3rem' }}>
-                <h3>TodoItem</h3>
-                <table class="ui celled table">
+                <table className="ui celled table">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>Title</th>
-                            <th>Edit</th>
+                            <th>Update</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <TodoItem />
-                        <TodoItem />
-                        <TodoItem />
-                        <TodoItem />
-                        <TodoItem />
-                        <TodoItem />
-                        <TodoItem />
+                        {
+                            todos && todos.map(todo => (
+                                <TodoItem
+                                    key={todo.id}
+                                    todo={todo}
+                                />
+                            ))
+                        }
                     </tbody>
                 </table>
             </section>
