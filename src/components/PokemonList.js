@@ -51,13 +51,29 @@ const PokemonList = (props) => {
 
   return (
     <div>
-      <div className="search-wrapper">
+      {/* <div className="search-wrapper">
         <p>Search: </p>
         <input type="text" onChange={(e) => setSearch(e.target.value)} />
         <button onClick={() => props.history.push(`/pokemon/${search}`)}>
           Search
         </button>
+      </div> */}
+
+      <div className="ui category search search-wrapper">
+        <form onSubmit={() => props.history.push(`/pokemon/${search}`)}>
+          <div className="ui icon input">
+            <input
+              className="prompt"
+              type="text"
+              placeholder="Search pokemon..."
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <i className="search icon"></i>
+          </div>
+        </form>
+        <div className="results"></div>
       </div>
+
       {ShowData()}
       {!_.isEmpty(pokemonList.data) && (
         <ReactPaginate
