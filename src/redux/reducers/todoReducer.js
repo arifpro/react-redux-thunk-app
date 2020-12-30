@@ -22,7 +22,9 @@ const todoReducer = (state = defaultState, action) => {
             // return [...state, { id: state[state.length - 1].id + 1, name: action.payload}]
             return [...state, action.payload]
         case ActionTypes.UPDATE_TODO:
-            return state
+            return state.map(todo => (
+                todo.id === action.payload.id ? {...todo, name: action.payload.name} : todo
+            ))
         case ActionTypes.DELETE_TODO:
             return state.filter(todo => todo.id !== action.payload)
         default:

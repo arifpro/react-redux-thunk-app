@@ -11,10 +11,10 @@ const TodoList = () => {
                 <table className="ui celled table">
                     <thead>
                         <tr style={{ textAlign: 'center' }}>
-                            <th>No</th>
+                            <th style={{ width: '25%' }}>No</th>
                             <th>Title</th>
-                            <th>Update</th>
-                            <th>Delete</th>
+                            <th style={{ width: '10%' }}>Update</th>
+                            <th style={{ width: '10%' }}>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
