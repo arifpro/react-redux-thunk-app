@@ -1,3 +1,5 @@
+import * as ActionTypes from '../actionTypes';
+
 const defaultState = {
   loading: false,
   data: {},
@@ -6,19 +8,19 @@ const defaultState = {
 
 const pokemonMultipleReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case "POKEMON_MULTIPLE_LOADING":
+    case ActionTypes.POKEMON_MULTIPLE_LOADING:
       return {
         ...state,
         loading: true,
         errorMsg: ""
       };
-    case "POKEMON_MULTIPLE_FAIL":
+    case ActionTypes.POKEMON_MULTIPLE_FAIL:
       return {
         ...state,
         loading: false,
         errorMsg: "unable to find pokemon"
       };
-    case "POKEMON_MULTIPLE_SUCCESS":
+    case ActionTypes.POKEMON_MULTIPLE_SUCCESS:
       return {
         ...state,
         loading: false,

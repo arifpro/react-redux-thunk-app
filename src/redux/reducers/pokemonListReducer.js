@@ -1,3 +1,5 @@
+import * as ActionTypes from '../actionTypes';
+
 const defaultState = {
   loading: false,
   data: [],
@@ -7,19 +9,19 @@ const defaultState = {
 
 const pokemonListReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case "POKEMON_LIST_LOADING":
+    case ActionTypes.POKEMON_LIST_LOADING:
       return {
         ...state,
         loading: true,
         errorMsg: ""
       };
-    case "POKEMON_LIST_FAIL":
+    case ActionTypes.POKEMON_LIST_FAIL:
       return {
         ...state,
         loading: false,
         errorMsg: "unable to get pokemon"
       };
-    case "POKEMON_LIST_SUCCESS":
+    case ActionTypes.POKEMON_LIST_SUCCESS:
       return {
         ...state,
         loading: false,
